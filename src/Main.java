@@ -14,5 +14,8 @@ public class Main {
         System.out.print("Enter a number: ");
         Integer input = myScanner.nextInt();
         System.out.print("The result: " + (input*3));
+
+        FileReaderClass readOnce = new FileReaderClass();
+        readOnce.readFile();
     }
 }

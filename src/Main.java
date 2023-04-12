@@ -13,7 +13,11 @@ public class Main {
 
         System.out.print("Enter a number: ");
         Integer input = myScanner.nextInt();
-        System.out.print("The result: " + (input*3));
+        System.out.println("The result: " + (input*3));
+
+        /*System.out.println("What is your name?");
+        String input2 = myScanner.nextLine();
+        System.out.println("Oh! Hello " + input2);*/
 
         FileReaderClass readOnce = new FileReaderClass();
         readOnce.readFile();

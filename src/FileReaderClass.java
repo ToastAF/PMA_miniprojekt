@@ -14,6 +14,7 @@ public class FileReaderClass {
             Scanner fileScanner = new Scanner(myFile);
             while(fileScanner.hasNextLine()){
                 String data = fileScanner.nextLine();
+
                 System.out.println(data);
             }
             fileScanner.close();

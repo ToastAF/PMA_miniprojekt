@@ -2,6 +2,7 @@
 // then press Enter. You can now see whitespace characters in your code.
 import java.util.Scanner;
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class Main {
         JPanel mainPanel = new JPanel();
         JButton firstButton = new JButton("Test Button");
         JButton secondButton = new JButton("Test Button 2");
-        frame.add(mainPanel);
+        frame.getContentPane().add(BorderLayout.SOUTH, mainPanel);
         mainPanel.add(firstButton);
         mainPanel.add(secondButton);
         frame.setVisible(true);

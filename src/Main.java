@@ -3,6 +3,9 @@
 import java.util.Scanner;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,12 +14,21 @@ public class Main {
         JFrame frame = new JFrame("Main Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300,300);
-        JPanel mainPanel = new JPanel();
+
+        JPanel textPanel = new JPanel();
+        JTextArea textBox = new JTextArea(8, 16);
+        textBox.setEditable(false);
+        textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
+        frame.getContentPane().add(BorderLayout.CENTER, textPanel);
+        textPanel.add(textBox);
+
+        JPanel buttonPanel = new JPanel();
         JButton firstButton = new JButton("Test Button");
         JButton secondButton = new JButton("Test Button 2");
-        frame.getContentPane().add(BorderLayout.SOUTH, mainPanel);
-        mainPanel.add(firstButton);
-        mainPanel.add(secondButton);
+        frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
+        buttonPanel.add(firstButton);
+        buttonPanel.add(secondButton);
+
         frame.setVisible(true);
 
         System.out.println("Hello and welcome!");
@@ -24,11 +36,6 @@ public class Main {
         scanInt();
 
         scanText();
-
-
-
-        FileReaderClass readOnce = new FileReaderClass();
-        readOnce.readFile();
     }
 
     public static void scanText(){

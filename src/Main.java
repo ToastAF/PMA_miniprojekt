@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
         JFrame frame = new JFrame("Main Frame");
@@ -20,9 +21,11 @@ public class Main {
         JPanel textPanel = new JPanel();
         JTextArea textBox = new JTextArea(8, 16);
         textBox.setEditable(false);
-        textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
+
+        //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
         frame.getContentPane().add(BorderLayout.CENTER, textPanel);
         textPanel.add(textBox);
+
 
         JPanel picturePanel = new JPanel();
         JLabel character = new JLabel(new ImageIcon("Characters/Frogman-portrait2.png"));
@@ -35,9 +38,13 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Stinky haha poop");
+                WriteOnScreen screenWriter = new WriteOnScreen();
+                screenWriter.setInput(new File("Text files/dialogueText.txt"), textBox);
+                Thread writeThread = new Thread(screenWriter);
+                writeThread.run();
             }
         });
-        firstButton.setVisible(false);
+
         JButton secondButton = new JButton("Test Button 2");
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         buttonPanel.add(firstButton);
@@ -46,37 +53,8 @@ public class Main {
         frame.setVisible(true);
 
         System.out.println("Hello and welcome!");
-
-        scanInt();
-
-        scanText();
     }
+    public static void countTime(float time){
 
-    public static void scanText(){
-        try{
-            Scanner myScanner2 = new Scanner(System.in);
-            System.out.println("What is your name?");
-            String input2 = myScanner2.nextLine();
-            System.out.println("Oh! Hello " + input2);
-        }
-        catch(Exception e){
-            System.out.println("Unknown error occured!");
-            scanText();
-        }
-    }
-
-    public static void scanInt(){
-        try{
-            Scanner myScanner = new Scanner(System.in);
-
-            System.out.print("Enter a number: ");
-            Integer input = myScanner.nextInt();
-            System.out.println("The result: " + (input*3));
-        }
-        catch(Exception e) {
-            System.out.println("That is not a nunmber >:(");
-            scanInt(); //Metoden kalder sig selv, når der kommer en exception, så man skal skrive det rigtige >:)
-        }
     }
 }
-//pubæ

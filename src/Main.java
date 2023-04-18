@@ -22,6 +22,11 @@ public class Main {
         frame.getContentPane().add(BorderLayout.CENTER, textPanel);
         textPanel.add(textBox);
 
+        JPanel picturePanel = new JPanel();
+        JLabel character = new JLabel(new ImageIcon("Characters/Frogman-portrait2.png"));
+        picturePanel.add(character);
+        frame.getContentPane().add(BorderLayout.EAST, picturePanel);
+
         JPanel buttonPanel = new JPanel();
         JButton firstButton = new JButton("Test Button");
         JButton secondButton = new JButton("Test Button 2");

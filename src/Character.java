@@ -6,13 +6,11 @@ public class Character {
     public String name;
     public Boolean isBad;
 
-    public Character(String name, Boolean badness){
+    public File speakFile;
+
+    public Character(String name, Boolean badness, File inputFile){
         this.name = name;
         isBad = badness;
+        speakFile = inputFile;
     }
-
-    public void Speak(File inputFile){
-
-    }
-
 }

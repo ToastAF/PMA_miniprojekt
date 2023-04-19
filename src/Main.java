@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Character[] charList = new Character[10];
+        charList[0] = new Character("Horgenblorg",false, new File("Text files/dialogueText.txt"));
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
@@ -38,10 +40,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Stinky haha poop");
-                WriteOnScreen screenWriter = new WriteOnScreen();
-                screenWriter.setInput(new File("Text files/dialogueText.txt"), textBox, 100);
-                Thread writeThread = new Thread(screenWriter);
-                writeThread.start();
+                startWriteThread(charList[0].speakFile, textBox, 100);
             }
         });
 
@@ -54,7 +53,10 @@ public class Main {
 
         System.out.println("Hello and welcome!");
     }
-    public static void countTime(float time){
-
+    public static void startWriteThread(File inputFile, JTextArea inputTextBox, Integer delayInput){
+        WriteOnScreen screenWriter = new WriteOnScreen();
+        screenWriter.setInput(inputFile, inputTextBox, delayInput);
+        Thread writeThread = new Thread(screenWriter);
+        writeThread.start();
     }
 }

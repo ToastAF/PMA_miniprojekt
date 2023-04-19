@@ -4,25 +4,27 @@ import java.io.File;
 public class WriteOnScreen implements Runnable {
     File inputFile;
     JTextArea inputTextArea;
+    Integer writeDelay;
     WriteOnScreen(){
 
     }
     @Override
     public void run() {
-        //try{
+        try{
             String temp = "";
             for(char yes : FileReaderClass.readFileToString(inputFile).toCharArray()){
                 temp += yes;
                 inputTextArea.setText(temp);
-                //this.wait(100);
-            };
-       /* }catch(InterruptedException ex){
+                Thread.sleep(writeDelay);
+            }
+        }catch(InterruptedException ex){
             ex.printStackTrace();
-        }*/
+        }
     }
 
-    public void setInput(File inputFile, JTextArea inputTextArea){
+    public void setInput(File inputFile, JTextArea inputTextArea, Integer delay){
         this.inputFile = inputFile;
         this.inputTextArea = inputTextArea;
+        writeDelay = delay;
     }
 }

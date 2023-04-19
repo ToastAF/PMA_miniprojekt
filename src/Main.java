@@ -39,9 +39,9 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Stinky haha poop");
                 WriteOnScreen screenWriter = new WriteOnScreen();
-                screenWriter.setInput(new File("Text files/dialogueText.txt"), textBox);
+                screenWriter.setInput(new File("Text files/dialogueText.txt"), textBox, 100);
                 Thread writeThread = new Thread(screenWriter);
-                writeThread.run();
+                writeThread.start();
             }
         });
 

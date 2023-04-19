@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Character[] charList = new Character[10];
         charList[0] = new Character("Horgenblorg",false, new File("Text files/dialogueText.txt"));
+        charList[1] = new Character("OhNoMan", true, new File("Text files/characterText2.txt"));
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
@@ -35,16 +36,23 @@ public class Main {
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
 
         JPanel buttonPanel = new JPanel();
-        JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Ohnoman-littol.png"));
+        JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Wizard.gif"));
         firstButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Stinky haha poop");
-                startWriteThread(charList[0].speakFile, textBox, 100);
+                startWriteThread(charList[0].getSpeakFile(), textBox, 100);
             }
         });
 
         JButton secondButton = new JButton("Test Button 2");
+        secondButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startWriteThread(charList[1].getSpeakFile(), textBox, 100);
+            }
+        });
+
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         buttonPanel.add(firstButton);
         buttonPanel.add(secondButton);

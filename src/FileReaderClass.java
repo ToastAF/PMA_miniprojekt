@@ -6,9 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class FileReaderClass{
 
-    public FileReaderClass(){
-
-    }
+    public FileReaderClass(){}
     public static String readFileToString(File inputFile){
         try {
             String temp = "";
@@ -27,9 +25,4 @@ public class FileReaderClass{
             return "Error, no file to read!";
         }
     }
-
-    public void WriteOnScreen(){
-
-    }
-
 }

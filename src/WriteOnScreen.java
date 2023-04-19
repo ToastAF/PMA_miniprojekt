@@ -2,12 +2,10 @@ import javax.swing.*;
 import java.io.File;
 
 public class WriteOnScreen implements Runnable {
-    File inputFile;
-    JTextArea inputTextArea;
-    Integer writeDelay;
-    WriteOnScreen(){
-
-    }
+    private File inputFile;
+    private JTextArea inputTextArea;
+    private Integer writeDelay;
+    WriteOnScreen(){}
     @Override
     public void run() {
         try{

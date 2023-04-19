@@ -3,14 +3,21 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Character {
-    public String name;
-    public Boolean isBad;
+    private String name;
+    private Boolean isBad;
+    private Boolean isFrogified;
 
-    public File speakFile;
+    private File speakFile;
 
     public Character(String name, Boolean badness, File inputFile){
         this.name = name;
         isBad = badness;
+        isFrogified = false;
         speakFile = inputFile;
     }
+
+    public String getName(){ return name; }
+    public Boolean getBadness(){ return isBad; }
+    public Boolean getIsFrogified(){ return isFrogified; }
+    public File getSpeakFile(){ return speakFile; }
 }

@@ -15,8 +15,11 @@ public class WriteOnScreen implements Runnable {
                 inputTextArea.setText(temp);
                 Thread.sleep(writeDelay);
             }
+            Main.textBoxLock = false;
+            System.out.println("Lock unlocked!");
         }catch(InterruptedException ex){
             ex.printStackTrace();
+            System.out.println("Thread ded");
         }
     }
 

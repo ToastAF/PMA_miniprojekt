@@ -10,7 +10,11 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
+    static public boolean textBoxLock = false;
+
     public static void main(String[] args) {
+
+
         Character[] charList = new Character[10];
         charList[0] = new Character("Horgenblorg",false, new File("Text files/dialogueText.txt"));
         charList[1] = new Character("OhNoMan", true, new File("Text files/characterText2.txt"));
@@ -40,18 +44,23 @@ public class Main {
         firstButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Stinky haha poop");
-                startWriteThread(charList[0].getSpeakFile(), textBox, 100);
-            }
-        });
+                if(textBoxLock == false){
+                    textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
+                    System.out.println("Pressed button 1: locked");
+                    startWriteThread(charList[0].getSpeakFile(), textBox, 100);
+                }
+            }});
 
         JButton secondButton = new JButton("Test Button 2");
         secondButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startWriteThread(charList[1].getSpeakFile(), textBox, 100);
-            }
-        });
+                if(textBoxLock == false){
+                    textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
+                    System.out.println("Pressed button 2: locked");
+                    startWriteThread(charList[1].getSpeakFile(), textBox, 100);
+                }
+            }});
 
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         buttonPanel.add(firstButton);
@@ -63,8 +72,8 @@ public class Main {
     }
     public static void startWriteThread(File inputFile, JTextArea inputTextBox, Integer delayInput){
         WriteOnScreen screenWriter = new WriteOnScreen();
-        screenWriter.setInput(inputFile, inputTextBox, delayInput);
         Thread writeThread = new Thread(screenWriter);
+        screenWriter.setInput(inputFile, inputTextBox, delayInput);
         writeThread.start();
     }
 }

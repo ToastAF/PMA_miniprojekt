@@ -11,16 +11,19 @@ import java.util.Scanner;
 
 public class Main {
     static public boolean textBoxLock = false;
+    static public Integer charListCounter = 0;
+    static public Integer writeDelay = 50;
+
+    static JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Wizard.gif"));
+    static JButton secondButton = new JButton("Test Button 2");
 
     public static void main(String[] args) {
-
-
         Character[] charList = new Character[10];
         charList[0] = new Character("Horgenblorg",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
         charList[1] = new Character("OhNoMan", false, new File("Characters/Ohnoman-portrait2.png"), new File("Text files/characterText2.txt"));
-        /*charList[2] = new Character("The Froggler", true);
-        charList[3] = new Character("Serpen Tina", true);
-        charList[4] = new Character(Ketchip", false, new File*/
+        charList[2] = new Character("The Froggler",true, new File("Characters/Frogman-portrait2.png"), new File("Text files/forgManText.txt"));
+        charList[3] = new Character("Serpen Tina", true, new File("Characters/Snake Lady.png"), new File("Text files/snakeLadyText.txt"));
+        /*charList[4] = new Character(Ketchip", false, new File*/
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
@@ -42,33 +45,47 @@ public class Main {
 
 
         JPanel picturePanel = new JPanel();
-        JLabel characterLabel = new JLabel(new ImageIcon(charList[0].getPortraitFile().toString()));
+        JLabel characterLabel = new JLabel(new ImageIcon("Characters/Wizard.gif"));
         picturePanel.add(characterLabel);
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
 
         JPanel buttonPanel = new JPanel();
-        JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Wizard.gif"));
         firstButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textBoxLock == false){
                     textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
                     System.out.println("Pressed button 1: locked");
-                    startWriteThread(charList[0].getSpeakFile(), textBox, 50);
+                    charList[charListCounter].setIsFrogified();
+
+                    charListCounter++;
+                    startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
+                    characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
                 }
             }});
 
-        JButton secondButton = new JButton("Test Button 2");
         secondButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textBoxLock == false){
                     textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
                     System.out.println("Pressed button 2: locked");
-                    startWriteThread(charList[1].getSpeakFile(), textBox, 50);
-                    characterLabel.setIcon(new ImageIcon(charList[1].getPortraitFile().toString()));
+
+                    charListCounter++;
+                    startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
+                    characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
                 }
             }});
+
+        JButton startButton = new JButton("Start game!");
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
+                characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
+                startButton.setVisible(false);
+            }
+        });
 
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         buttonPanel.add(firstButton);

@@ -63,35 +63,26 @@ public class Main {
 
 
         JPanel buttonPanel = new JPanel();
-        firstButton.addActionListener(new ActionListener() {
+        firstButton.addActionListener(new ActionListener() {   //This is the button to FROGIFY people!
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textBoxLock == false){
-                    textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
-                    System.out.println("Pressed button 1: locked");
                     charList[charListCounter].setIsFrogified();
 
                     charListCounter++;
                     startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
                     characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
-                }
             }});
 
-        secondButton.addActionListener(new ActionListener() {
+        secondButton.addActionListener(new ActionListener() {   //This is the button for going to the next person!
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textBoxLock == false){
-                    textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
-                    System.out.println("Pressed button 2: locked");
-
                     charListCounter++;
                     startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
                     characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
-                }
             }});
 
         JButton startButton = new JButton("Start game!");
-        startButton.addActionListener(new ActionListener() {
+        startButton.addActionListener(new ActionListener() {  //This is the button for starting the game
             @Override
             public void actionPerformed(ActionEvent e) {
                 startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,9 +37,12 @@ public class Main {
 
         JPanel textPanel = new JPanel();
         JTextArea textBox = new JTextArea(100,50);
-        JScrollPane scrollPane = new JScrollPane(textPanel);
         textBox.setEditable(false);
         textBox.setSize(100,100);
+
+        JTextArea nameBox = new JTextArea(1,30);
+        textBox.setEditable(false);
+
 
 
         //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
@@ -52,6 +56,9 @@ public class Main {
 
         picturePanel.add(characterLabel);
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
+        ;
+        picturePanel.add(nameBox);
+
 
         JPanel buttonPanel = new JPanel();
         firstButton.addActionListener(new ActionListener() {

@@ -9,10 +9,11 @@ public class Character {
     private File portrait;
     private File speakFile;
 
-    public Character(String name, Boolean badness, File inputFile){
+    public Character(String name, Boolean badness, File portraitInput, File inputFile){
         this.name = name;
         isBad = badness;
         isFrogified = false;
+        portrait = portraitInput;
         speakFile = inputFile;
     }
 

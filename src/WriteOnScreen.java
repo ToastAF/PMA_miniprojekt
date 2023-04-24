@@ -21,8 +21,10 @@ public class WriteOnScreen implements Runnable {
             Main.textBoxLock = false;
             System.out.println("Lock unlocked!");
 
-            Main.firstButton.setVisible(true);
-            Main.secondButton.setVisible(true);
+            if(Main.gameIsStarted == true){
+                Main.firstButton.setVisible(true);
+                Main.secondButton.setVisible(true);
+            }
         }catch(InterruptedException ex){
             ex.printStackTrace();
             System.out.println("Thread ded");

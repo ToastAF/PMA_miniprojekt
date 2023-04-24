@@ -44,10 +44,8 @@ public class Main {
         textBox.setEditable(false);
         textBox.setSize(100,100);
 
-        JTextArea nameBox = new JTextArea(1,30);
-        textBox.setEditable(false);
-
-
+        JTextArea nameBox = new JTextArea();
+        nameBox.setEditable(false);
 
         //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
         frame.getContentPane().add(BorderLayout.CENTER, textPanel);
@@ -59,8 +57,8 @@ public class Main {
         JLabel characterLabel = new JLabel(new ImageIcon("Characters/WizardBig.png"));
 
         picturePanel.add(characterLabel);
+        picturePanel.setLayout(new BoxLayout(picturePanel,BoxLayout.Y_AXIS));
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
-        ;
         picturePanel.add(nameBox);
 
 

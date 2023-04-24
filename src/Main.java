@@ -49,7 +49,7 @@ public class Main {
                 if(textBoxLock == false){
                     textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
                     System.out.println("Pressed button 1: locked");
-                    startWriteThread(charList[0].getSpeakFile(), textBox, 100);
+                    startWriteThread(charList[0].getSpeakFile(), textBox, 50);
                 }
             }});
 
@@ -60,7 +60,7 @@ public class Main {
                 if(textBoxLock == false){
                     textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
                     System.out.println("Pressed button 2: locked");
-                    startWriteThread(charList[1].getSpeakFile(), textBox, 100);
+                    startWriteThread(charList[1].getSpeakFile(), textBox, 50);
                 }
             }});
 

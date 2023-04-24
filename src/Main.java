@@ -19,17 +19,22 @@ public class Main {
         charList[0] = new Character("Horgenblorg",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
         charList[1] = new Character("OhNoMan", false, new File("Characters/Ohnoman-portrait2.png"), new File("Text files/characterText2.txt"));
         /*charList[2] = new Character("The Froggler", true);
-        charList[3] = new Character("Serpen Tina", true);*/
+        charList[3] = new Character("Serpen Tina", true);
+        charList[4] = new Character(Ketchip", false, new File*/
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
         JFrame frame = new JFrame("Main Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600,600);
+        frame.setSize(650,600);
+        frame.setBackground(Color.CYAN);
 
         JPanel textPanel = new JPanel();
-        JTextArea textBox = new JTextArea(8, 20);
+        JTextArea textBox = new JTextArea(100,50);
+        JScrollPane scrollPane = new JScrollPane(textPanel);
         textBox.setEditable(false);
+        textBox.setSize(100,100);
+
 
         //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
         frame.getContentPane().add(BorderLayout.CENTER, textPanel);

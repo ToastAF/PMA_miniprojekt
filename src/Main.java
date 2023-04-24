@@ -16,8 +16,8 @@ public class Main {
 
 
         Character[] charList = new Character[10];
-        charList[0] = new Character("Horgenblorg",false, new File("Text files/dialogueText.txt"));
-        charList[1] = new Character("OhNoMan", true, new File("Text files/characterText2.txt"), new File("Characters/Ohnoman-portrait2.png"));
+        charList[0] = new Character("Horgenblorg",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
+        charList[1] = new Character("OhNoMan", false, new File("Characters/Ohnoman-portrait2.png"), new File("Text files/characterText2.txt"));
         /*charList[2] = new Character("The Froggler", true);
         charList[3] = new Character("Serpen Tina", true);*/
 
@@ -25,7 +25,7 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
         JFrame frame = new JFrame("Main Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
+        frame.setSize(600,600);
 
         JPanel textPanel = new JPanel();
         JTextArea textBox = new JTextArea(8, 20);
@@ -37,8 +37,8 @@ public class Main {
 
 
         JPanel picturePanel = new JPanel();
-        JLabel character = new JLabel(new ImageIcon("Characters/Frogman-portrait2.png"));
-        picturePanel.add(character);
+        JLabel characterLabel = new JLabel(new ImageIcon(charList[0].getPortraitFile().toString()));
+        picturePanel.add(characterLabel);
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
 
         JPanel buttonPanel = new JPanel();
@@ -61,6 +61,7 @@ public class Main {
                     textBoxLock = true;  //This locks the textArea so only one file can be written in it at a time!
                     System.out.println("Pressed button 2: locked");
                     startWriteThread(charList[1].getSpeakFile(), textBox, 50);
+                    characterLabel.setIcon(new ImageIcon(charList[1].getPortraitFile().toString()));
                 }
             }});
 

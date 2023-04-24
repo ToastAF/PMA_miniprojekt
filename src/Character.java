@@ -20,5 +20,6 @@ public class Character {
     public String getName(){ return name; }
     public Boolean getBadness(){ return isBad; }
     public Boolean getIsFrogified(){ return isFrogified; }
+    public File getPortraitFile(){ return portrait; }
     public File getSpeakFile(){ return speakFile; }
 }

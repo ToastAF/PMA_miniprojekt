@@ -18,6 +18,8 @@ public class Main {
         Character[] charList = new Character[10];
         charList[0] = new Character("Horgenblorg",false, new File("Text files/dialogueText.txt"));
         charList[1] = new Character("OhNoMan", true, new File("Text files/characterText2.txt"));
+        /*charList[2] = new Character("The Froggler", true);
+        charList[3] = new Character("Serpen Tina", true);*/
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.

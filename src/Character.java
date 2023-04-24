@@ -6,7 +6,7 @@ public class Character {
     private String name;
     private Boolean isBad;
     private Boolean isFrogified;
-
+    private File portrait;
     private File speakFile;
 
     public Character(String name, Boolean badness, File inputFile){

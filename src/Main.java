@@ -17,7 +17,7 @@ public class Main {
 
         Character[] charList = new Character[10];
         charList[0] = new Character("Horgenblorg",false, new File("Text files/dialogueText.txt"));
-        charList[1] = new Character("OhNoMan", true, new File("Text files/characterText2.txt"));
+        charList[1] = new Character("OhNoMan", true, new File("Text files/characterText2.txt"), new File("Characters/Ohnoman-portrait2.png"));
         /*charList[2] = new Character("The Froggler", true);
         charList[3] = new Character("Serpen Tina", true);*/
 
@@ -28,7 +28,7 @@ public class Main {
         frame.setSize(300,300);
 
         JPanel textPanel = new JPanel();
-        JTextArea textBox = new JTextArea(8, 16);
+        JTextArea textBox = new JTextArea(8, 20);
         textBox.setEditable(false);
 
         //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));

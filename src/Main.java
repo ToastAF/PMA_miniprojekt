@@ -20,12 +20,16 @@ public class Main {
 
     public static void main(String[] args) {
         Character[] charList = new Character[10];
-        charList[0] = new Character("Horgenblorg",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
+        charList[0] = new Character("Horgenblorg the Orc",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
         charList[1] = new Character("Smelvin O. Deur", false, new File("Characters/Ohnoman-portrait2.png"), new File("Text files/characterText2.txt"));
         charList[2] = new Character("The Froggler",true, new File("Characters/Frogman-portrait2.png"), new File("Text files/forgManText.txt"));
         charList[3] = new Character("Serpen Tina", true, new File("Characters/Snake Lady.png"), new File("Text files/snakeLadyText.txt"));
         charList[4] = new Character("Ketchip", false, new File("Characters/Wizard.gif"), new File("Text files/startText.txt"));
-        charList[5] = new Character("Sir Helmet", false, new File("Characters/HelmetDude.png"), new File("Text files/helmetText.txt"));
+        //charList[5] = new Character("Isabella", true, new File()), new File();
+        charList[6] = new Character("Sir Helmet", false, new File("Characters/HelmetDude.png"), new File("Text files/helmetText.txt"));
+        //charList[7] = new Character("Gobbo Gob the Goblin", true, new File()), new File());
+        //charList[8] = new Character("John Business", false, new File()), new File());
+        //charList[9] = new Character("Doug the dog", true, new File()), new File());
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.

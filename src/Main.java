@@ -20,6 +20,7 @@ public class Main {
     static JButton secondButton = new JButton("Test Button 2");
 
     public static void main(String[] args) {
+        // Character list
         Character[] charList = new Character[10];
         charList[0] = new Character("Horgenblorg the Orc",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
         charList[1] = new Character("Smelvin O. Deur", false, new File("Characters/Ohnoman-portrait2.png"), new File("Text files/characterText2.txt"));
@@ -34,24 +35,27 @@ public class Main {
 
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
+        // Frame
         JFrame frame = new JFrame("Main Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(650,600);
-        frame.setBackground(Color.CYAN);
 
+        // Dialogue field
         JPanel textPanel = new JPanel();
         JTextArea textBox = new JTextArea(100,50);
         textBox.setEditable(false);
         textBox.setSize(100,100);
+        textPanel.setBackground(new Color(86,136,199));
 
-        JTextArea nameBox = new JTextArea();
+        // Name field
+        JTextArea nameBox = new JTextArea(1,2);
         nameBox.setEditable(false);
 
+        //
         //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
         frame.getContentPane().add(BorderLayout.CENTER, textPanel);
         textPanel.add(textBox);
         startWriteThread(new File("Text files/startText.txt"), textBox, writeDelay);
-
 
         JPanel picturePanel = new JPanel();
         JLabel characterLabel = new JLabel(new ImageIcon("Characters/WizardBig.png"));
@@ -60,7 +64,6 @@ public class Main {
         picturePanel.setLayout(new BoxLayout(picturePanel,BoxLayout.Y_AXIS));
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
         picturePanel.add(nameBox);
-
 
         JPanel buttonPanel = new JPanel();
         firstButton.addActionListener(new ActionListener() {   //This is the button to FROGIFY people!

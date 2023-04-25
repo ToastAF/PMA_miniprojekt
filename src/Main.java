@@ -63,7 +63,7 @@ public class Main {
 
         JPanel picturePanel = new JPanel();
         JLabel characterLabel = new JLabel(new ImageIcon("Characters/WizardBig.png"));
-
+        picturePanel.setBackground(new Color(86,136,199));
         picturePanel.add(characterLabel);
         picturePanel.setLayout(new BoxLayout(picturePanel,BoxLayout.Y_AXIS));
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);

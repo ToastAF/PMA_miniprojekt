@@ -17,7 +17,7 @@ public class Main {
     static public Boolean gameIsStarted = false;
 
     static JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Wizard.gif"));
-    static JButton secondButton = new JButton("Test Button 2");
+    static JButton secondButton = new JButton("Go to next person...", new ImageIcon("Characters/WizardWalk.gif"));
 
     static Character[] charList = new Character[10];
 
@@ -113,6 +113,7 @@ public class Main {
             }
         });
 
+        buttonPanel.setBackground(new Color(154, 80, 32));
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         buttonPanel.add(firstButton);
         buttonPanel.add(secondButton);

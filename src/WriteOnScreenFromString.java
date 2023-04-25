@@ -1,18 +1,15 @@
 import javax.swing.*;
 import java.io.File;
 
-public class WriteOnScreen implements Runnable {
-    private File inputFile;
+public class WriteOnScreenFromString implements Runnable {
+    private String inputString;
     private JTextArea inputTextArea;
     private Integer writeDelay;
     @Override
     public void run() {
         try{
-            Main.firstButton.setVisible(false);
-            Main.secondButton.setVisible(false);
-
             String temp = "";
-            for(char yes : FileReaderClass.readFileToString(inputFile).toCharArray()){
+            for(char yes : inputString.toCharArray()){
                 temp += yes;
                 inputTextArea.setText(temp);
                 Thread.sleep(writeDelay);
@@ -20,18 +17,14 @@ public class WriteOnScreen implements Runnable {
             Main.textBoxLock = false;
             System.out.println("Lock unlocked!");
 
-            if(Main.gameIsStarted == true){
-                Main.firstButton.setVisible(true);
-                Main.secondButton.setVisible(true);
-            }
         }catch(InterruptedException ex){
             ex.printStackTrace();
             System.out.println("Thread ded");
         }
     }
 
-    public void setInput(File inputFile, JTextArea inputTextArea, Integer delay){
-        this.inputFile = inputFile;
+    public void setInput(String inputString, JTextArea inputTextArea, Integer delay){
+        this.inputString = inputString;
         this.inputTextArea = inputTextArea;
         writeDelay = delay;
     }

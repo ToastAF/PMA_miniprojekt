@@ -43,6 +43,7 @@ public class Main {
         JFrame frame = new JFrame("Main Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(650,600);
+        frame.setResizable(false);
 
         // Dialogue field
         JPanel textPanel = new JPanel();

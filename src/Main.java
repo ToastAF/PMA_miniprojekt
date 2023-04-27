@@ -25,6 +25,8 @@ public class Main {
     //The main text box where we write most of the things
     static JTextArea textBox = new JTextArea(100,50);
 
+    static JTextArea nameBox = new JTextArea("Oldor the Wizard",1,20);
+
     public static void main(String[] args) {
         // Character list
         charList[0] = new Character("Horgenblorg the Orc",false, new File("Characters/OrcMan.png"), new File("Text files/dialogueText.txt"));
@@ -43,7 +45,7 @@ public class Main {
         // Frame
         JFrame frame = new JFrame("Main Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(650,600);
+        frame.setSize(900,600);
         frame.setResizable(false);
 
         // Dialogue field
@@ -53,7 +55,6 @@ public class Main {
         textPanel.setBackground(new Color(86,136,199));
 
         // Name field
-        JTextArea nameBox = new JTextArea(1,2);
         nameBox.setEditable(false);
 
         //
@@ -80,9 +81,11 @@ public class Main {
                         charListCounter++;
                         startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
                         characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
+                        nameBox.setText(charList[charListCounter].getName());
                     }else{
                         startWriteThreadFromString(endGameText(), textBox, writeDelay);
                         characterLabel.setIcon(new ImageIcon("Characters/WizardBig.png"));
+                        nameBox.setText("Oldor the Wizard");
                         firstButton.setVisible(false);
                         secondButton.setVisible(false);
                     }
@@ -95,9 +98,11 @@ public class Main {
                         charListCounter++;
                         startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
                         characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
+                        nameBox.setText(charList[charListCounter].getName());
                     }else{
                         startWriteThreadFromString(endGameText(), textBox, writeDelay);
                         characterLabel.setIcon(new ImageIcon("Characters/WizardBig.png"));
+                        nameBox.setText("Oldor the Wizard");
                         firstButton.setVisible(false);
                         secondButton.setVisible(false);
                     }
@@ -109,6 +114,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 startWriteThread(charList[charListCounter].getSpeakFile(), textBox, writeDelay);
                 characterLabel.setIcon(new ImageIcon(charList[charListCounter].getPortraitFile().toString()));
+                nameBox.setText(charList[charListCounter].getName());
                 startButton.setVisible(false);
                 gameIsStarted = true;
             }

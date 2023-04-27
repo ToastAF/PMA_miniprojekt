@@ -43,7 +43,7 @@ public class Main {
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
         // Frame
-        JFrame frame = new JFrame("Main Frame");
+        JFrame frame = new JFrame("Wizard Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900,600);
         frame.setResizable(false);
@@ -170,7 +170,6 @@ public class Main {
                 textForBox = textForBox + charList[i].getName() + "'s soul was pure! \n";
             }
         }
-
         return textForBox;
     }
 

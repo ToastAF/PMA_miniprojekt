@@ -1,1 +1,11 @@
 Hello and welcome to game
+
+As a wizard, it is your duty to keep the inhabitants of the city on their best behavior.
+
+See someone acting unruly? Turn them into a frog for a few hours! That'll teach 'em!
+
+The train line has noticed an increase in rudeness as of late,
+and have hired you to show the passengers what's what.
+
+Talk to the passengers on this train and figure out who could use a good lesson in manners.
+But be careful: not everyone has bad intentions.

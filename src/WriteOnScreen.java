@@ -24,6 +24,9 @@ public class WriteOnScreen implements Runnable {
                 Main.firstButton.setVisible(true);
                 Main.secondButton.setVisible(true);
             }
+            else{
+                Main.startButton.setVisible(true);
+            }
         }catch(InterruptedException ex){
             ex.printStackTrace();
             System.out.println("Thread ded");

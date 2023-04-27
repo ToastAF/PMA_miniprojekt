@@ -1,4 +1,4 @@
 (At the end of the train you notice a
 dog silently judging you from afar...)
 
-(Do you want to frogify or go the next individual?)
+(Do you want to frogify or go to the next individual?)

@@ -18,6 +18,7 @@ public class Main {
 
     static JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Wizard.gif"));
     static JButton secondButton = new JButton("Go to next person...", new ImageIcon("Characters/WizardWalk.gif"));
+    static JButton startButton = new JButton("Start game!");
 
     static Character[] charList = new Character[10];
 
@@ -102,7 +103,7 @@ public class Main {
                     }
             }});
 
-        JButton startButton = new JButton("Start game!");
+
         startButton.addActionListener(new ActionListener() {  //This is the button for starting the game
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -121,6 +122,7 @@ public class Main {
 
         firstButton.setVisible(false);
         secondButton.setVisible(false);
+        startButton.setVisible(false);
 
         frame.setVisible(true);
 
@@ -179,3 +181,4 @@ public class Main {
         writeThread.start();
     }
 }
+

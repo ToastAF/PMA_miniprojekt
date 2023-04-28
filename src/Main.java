@@ -39,38 +39,36 @@ public class Main {
         charList[8] = new Character("John Business", false, new File("Characters/SmallGentleman.png"), new File("Text files/johnBusiness.txt"));
         charList[9] = new Character("Doug the dog", true, new File("Characters/bombastic side eye-portrait.png"), new File("Text files/dog.txt"));
 
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        // Frame
+        // The main frame
         JFrame frame = new JFrame("Wizard Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900,600);
         frame.setResizable(false);
 
-        // Dialogue field
+        // Different panels
         JPanel textPanel = new JPanel();
+        JPanel picturePanel = new JPanel();
+        JPanel buttonPanel = new JPanel();
+
+        //Text boxes
         textBox.setEditable(false);
         textBox.setSize(100,100);
         textPanel.setBackground(new Color(86,136,199));
-
-        // Name field
         nameBox.setEditable(false);
 
-        //
-        //textBox.setText(FileReaderClass.readFileToString(new File("Text files/dialogueText.txt")));
-        frame.getContentPane().add(BorderLayout.CENTER, textPanel);
-        textPanel.add(textBox);
-        startWriteThread(new File("Text files/startText.txt"), textBox, writeDelay);
-
-        JPanel picturePanel = new JPanel();
         JLabel characterLabel = new JLabel(new ImageIcon("Characters/WizardBig.png"));
+
+        //Changing colors
         picturePanel.setBackground(new Color(86,136,199));
-        picturePanel.add(characterLabel);
+        buttonPanel.setBackground(new Color(154, 80, 32));
+
+        //Aligning panels
         picturePanel.setLayout(new BoxLayout(picturePanel,BoxLayout.Y_AXIS));
         frame.getContentPane().add(BorderLayout.EAST, picturePanel);
-        picturePanel.add(nameBox);
+        frame.getContentPane().add(BorderLayout.CENTER, textPanel);
+        frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
 
-        JPanel buttonPanel = new JPanel();
+
         firstButton.addActionListener(new ActionListener() {   //This is the button to FROGIFY people!
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -118,8 +116,9 @@ public class Main {
             }
         });
 
-        buttonPanel.setBackground(new Color(154, 80, 32));
-        frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
+        picturePanel.add(characterLabel);
+        textPanel.add(textBox);
+        picturePanel.add(nameBox);
         buttonPanel.add(firstButton);
         buttonPanel.add(secondButton);
         buttonPanel.add(startButton);
@@ -130,10 +129,9 @@ public class Main {
 
         frame.setVisible(true);
 
-        System.out.println("Hello and welcome!");
+        startWriteThread(new File("Text files/startText.txt"), textBox, writeDelay);
 
-        //Debug endGameText() method :)
-        //System.out.print(endGameText());
+        System.out.println("Hello and welcome!");
     }
 
     static String endGameText(){

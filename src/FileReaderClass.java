@@ -5,8 +5,6 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class FileReaderClass{
-
-    public FileReaderClass(){}
     public static String readFileToString(File inputFile){
         try {
             String temp = "";

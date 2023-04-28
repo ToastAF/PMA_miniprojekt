@@ -15,7 +15,6 @@ public class Main {
     static public Integer charListCounter = 0;
     static public Integer writeDelay = 30;
     static public Boolean gameIsStarted = false;
-
     static JButton firstButton = new JButton("FROGIFY!", new ImageIcon("Characters/Wizard.gif"));
     static JButton secondButton = new JButton("Go to next person...", new ImageIcon("Characters/WizardWalk.gif"));
     static JButton startButton = new JButton("Start game!");
@@ -107,7 +106,6 @@ public class Main {
                         secondButton.setVisible(false);
                     }
             }});
-
 
         startButton.addActionListener(new ActionListener() {  //This is the button for starting the game
             @Override
